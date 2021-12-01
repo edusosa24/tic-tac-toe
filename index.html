@@ -18,26 +18,26 @@
   <section class="game">
     <h2 class="player">Player 1 turn</h2>
     <div class="row">
-      <button class="tl p1" onclick="gamePlay.gameBoard.updatePosition(event)"></button>
-      <button class="tm p2" onclick="gamePlay.gameBoard.updatePosition(event)"></button>
-      <button class="tr p3" onclick="gamePlay.gameBoard.updatePosition(event)"></button>
+      <button class="tl p1" onclick="play(event)"></button>
+      <button class="tm p2" onclick="play(event)"></button>
+      <button class="tr p3" onclick="play(event)"></button>
     </div>
 
     <div class="row">
-      <button class="ml p4" onclick="gamePlay.gameBoard.updatePosition(event)"></button>
-      <button class="mm p5" onclick="gamePlay.gameBoard.updatePosition(event)"></button>
-      <button class="mr p6" onclick="gamePlay.gameBoard.updatePosition(event)"></button>
+      <button class="ml p4" onclick="play(event)"></button>
+      <button class="mm p5" onclick="play(event)"></button>
+      <button class="mr p6" onclick="play(event)"></button>
     </div>
 
     <div class="row">
-      <button class="bl p7" onclick="gamePlay.gameBoard.updatePosition(event)"></button>
-      <button class="bm p8" onclick="gamePlay.gameBoard.updatePosition(event)"></button>
-      <button class="br p9" onclick="gamePlay.gameBoard.updatePosition(event)"></button>
+      <button class="bl p7" onclick="play(event)"></button>
+      <button class="bm p8" onclick="play(event)"></button>
+      <button class="br p9" onclick="play(event)"></button>
     </div>
 
     <div class="game-end">
       <h2 class="winner"></h2>
-      <button class="play" onclick="gamePlay.gameBoard.reset()">Play again?</button>  
+      <button class="play" onclick="reset()">Play again?</button>  
     </div>
   </section>
 </body>
