@@ -38,13 +38,80 @@ h1{
   font-size: 1.8rem;
 }
 
+.setup{
+  display: flex;
+  min-width: 100%;
+  max-width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pvp{
+  margin: 1rem 1rem;
+  font-size: 1.2rem;
+  border: solid #1D3557 1px;
+  border-radius: 0.25rem;
+  background-color: #f5f5f5;
+  color: #1D3557;
+  height: 6rem;
+  width: 10rem;
+}
+
+.pvp:hover{
+  cursor: pointer;
+  background-color: #A8DADC;
+}
+
+#player-1, #player-2 {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+
+label{
+  display: block;
+  font-size: 1.2rem;
+  color: #f5f5f5;
+  text-shadow: 2px 2px black;
+  align-self: left;
+  margin: 1rem 0 1rem 30%;
+}
+
+.name{
+  align-self: center;
+  width: 40%;
+  height: 2rem;
+}
+
+.name-btn{
+  align-self: center;
+  margin: 1rem 0;
+  width: 6rem;
+  height: 3rem;
+  font-size: 1.2rem;
+  border: solid #1D3557 1px;
+  border-radius: 0.25rem;
+  background-color: #f5f5f5;
+  color: #1D3557;
+}
+
+.name-btn:hover{
+  cursor: pointer;
+  background-color: #A8DADC;
+}
+
+
 .player{
   margin: 1rem 0;
   font-size: 1.2rem;
 }
 
 .game{
-  display: flex;
+  display: none;
   min-width: 100%;
   max-width: 100%;
   padding-top: 1rem;
@@ -182,6 +249,14 @@ div > button{
     gap: 3rem;
   }
 
+  label{
+    margin: 1rem 0 1rem 20%;
+  }
+
+  .name{
+    width: 60%;
+  }
+
   .row{
     height: 6rem;
     width: 18rem;
@@ -205,6 +280,15 @@ div > button{
 }
 
 @media (max-width: 360px){
+
+  label{
+    margin: 1rem 0 1rem 10%;
+  }
+
+  .name{
+    width: 80%;
+  }
+
   .row{
     height: 5rem;
     width: 15rem;

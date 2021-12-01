@@ -15,8 +15,23 @@
   <header>
     <h1>Tic-Tac-Toe</h1>
   </header>
+
+  <section class="setup">
+    <button class="play pvp" onclick="player1Name(event)">Player vs Player</button>
+    <form id="player-1" onsubmit="player2Name()">
+      <label for="name1">Enter player 1 name: </label>
+      <input type="text" placeholder="Player Name..." class="name" id="name1" required>
+      <button type="submit" class="name-btn">Accept</button>
+    </form>
+    <form id="player-2" onsubmit="gameStart()">
+      <label for="name2">Enter player 2 name: </label>
+      <input type="text" placeholder="Player Name..." class="name" id="name2" required>
+      <button type="submit" class="name-btn">Accept</button>
+    </form>
+  </section>
+
   <section class="game">
-    <h2 class="player">Player 1 turn</h2>
+    <h2 class="player"></h2>
     <div class="row">
       <button class="tl p1" onclick="play(event)"></button>
       <button class="tm p2" onclick="play(event)"></button>

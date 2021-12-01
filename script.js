@@ -1,16 +1,52 @@
 // Players factory
-let Player = (number) => {
+let Player = (number, name) => {
+  let playerName = name;
   let mark = (number === 1 ? 'X' : 'O');
   return {
+    playerName,
     mark
   };
 }
 
+
+// Pre game setup
+// Prevents form submit from refreshing the page
+let players = [];
+
+let form1 = document.querySelector("#player-1");
+let form2 = document.querySelector("#player-2");
+let gameSect = document.querySelector(".game");
+function handleForm(event) {
+  event.preventDefault();
+}
+form1.addEventListener('submit', handleForm);
+form2.addEventListener('submit', handleForm);
+
+const player1Name = (event) => {
+  event.target.style.display = "none";
+  form1.style.display = "flex";
+}
+
+const player2Name = () => {
+  const player1 = Player(1, document.getElementById("name1").value);
+  players[0] = player1;
+  form1.style.display = "none";
+  form2.style.display = "flex";
+}
+
+const gameStart = () => {
+  const player2 = Player(2, document.getElementById("name2").value);
+  players[1] = player2;
+  form2.style.display = "none";
+  gameSect.style.display = "flex";
+  document.querySelector(".player").textContent = `${players[0].playerName} turn`;
+}
+
+
+
 // Game Play Module
 let gamePlay = (() => {
   let turn = 1;
-  const player1 = Player(1);
-  const player2 = Player(2);
 
   // Game Board Module
   let gameBoard = (() => {
@@ -74,7 +110,11 @@ let gamePlay = (() => {
   const endGame = (mark) => {
     if (gameBoard.checkWin(mark)) {
       document.querySelector(".game-end").style.display = "flex";
-      document.querySelector(".winner").textContent = `Player ${turn} wins!!!`;
+      if(turn === 1){
+        document.querySelector(".winner").textContent = `${players[0].playerName} wins!!!`;
+      } else {
+        document.querySelector(".winner").textContent = `${players[1].playerName} wins!!!`;
+      }
       document.querySelector(".player").style.display = "none";
       return;
     } 
@@ -91,10 +131,10 @@ let gamePlay = (() => {
   const turnChange = () => {
     if (turn === 1) {
       turn = 2;
-      document.querySelector(".player").textContent = "Player 2 turn";
+      document.querySelector(".player").textContent = `${players[1].playerName} turn`;
     } else {
       turn = 1;
-      document.querySelector(".player").textContent = "Player 1 turn";
+      document.querySelector(".player").textContent = `${players[0].playerName} turn`;
     }
   }
 
@@ -123,7 +163,7 @@ let gamePlay = (() => {
 
   // Plays the turn
   const playTurn = (event) => {
-    let mark = turn === 1 ? player1.mark : player2.mark;
+    let mark = turn === 1 ? players[0].mark : players[1].mark;
     let color = turn === 1 ? "#457B9D" : "#E63946";
     switch (event.target.className) {
       case "tl p1":
