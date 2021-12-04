@@ -18,7 +18,7 @@ body{
   background: linear-gradient(180deg, rgba(168,218,220,1) 0%, rgba(29,57,87,1) 94%);
   background-repeat: no-repeat;
   background-attachment: fixed;
-  overflow-y: hidden;
+
 }
 
 h1, h2, button, label{
